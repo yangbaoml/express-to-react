@@ -1,0 +1,34 @@
+<html id="html">
+<header>
+  <title>hello</title>
+</header>
+
+
+<body id="body">
+  <div style="text-align: center;margin-top: 100px;">
+    <button onclick="addNum()">加</button>
+    <button onclick="reduceNum()">减</button>
+    <div id="count"></div>
+  </div>
+</body>
+
+
+
+</html>
+<script>
+  let countEle = document.getElementById("count");
+  countEle.innerHTML = <%= num %>;
+  let addNum = () => {
+    fetch("/add").then(response => response.json())
+      .then(data => {
+        countEle.innerText = data.num;
+      });
+  }
+  let reduceNum = () => {
+    fetch("/reduce").then(response => response.json())
+      .then(data => {
+        countEle.innerHTML = data.num;
+      });
+  }
+
+</script>
