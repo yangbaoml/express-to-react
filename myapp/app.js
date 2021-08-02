@@ -19,14 +19,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter);
 // app.use('/test.html',);
-
-
 // app.use(express.static('test'))
 // catch 404 and forward to error handler
 /* GET users listing. */
@@ -46,6 +43,7 @@ app.get("/test.html", function (req, res, next) {
   let html = ejs.render(data, { num: this.num })
   res.send(html);
 })
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (req, res, next) {
   next(createError(404));

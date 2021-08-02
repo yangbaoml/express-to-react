@@ -1,0 +1,17 @@
+<html>
+<header>
+  <title>react</title>
+</header>
+
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"> </script>
+<script>
+  let text = React.createElement("h1", null, "hello react");
+  let root = document.getElementById("root");
+  ReactDOM.render(text, root)
+</script>
+
+</html>
